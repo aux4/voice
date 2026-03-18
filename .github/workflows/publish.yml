@@ -32,20 +32,18 @@ permissions:
 
 jobs:
   publish:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Run tests
-        run: cd package && aux4 test run
-
       - name: Publish package
         uses: aux4/publish-package-action@v1
         with:
-          dir: package
           level: ${{ inputs.level || 'patch' }}
           aux4_token: ${{ secrets.AUX4_ACCESS_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          working_directory: package
+          package_directory: .
