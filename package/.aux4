@@ -25,6 +25,50 @@
           }
         }
       ]
+    },
+    {
+      "name": "voice",
+      "commands": [
+        {
+          "name": "say",
+          "execute": [
+            "log:Platform not supported"
+          ],
+          "help": {
+            "text": "Speak text using text-to-speech",
+            "variables": [
+              {
+                "name": "message",
+                "text": "The text to speak",
+                "default": "",
+                "arg": true
+              },
+              {
+                "name": "voice",
+                "text": "The voice to use",
+                "default": "Samantha"
+              }
+            ]
+          }
+        },
+        {
+          "name": "list",
+          "execute": [
+            "log:Platform not supported"
+          ],
+          "help": {
+            "text": "List available voices",
+            "variables": [
+              {
+                "name": "language",
+                "text": "Filter by language code (e.g., en, pt, ja)",
+                "default": "",
+                "arg": true
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
