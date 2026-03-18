@@ -1,0 +1,55 @@
+{
+  "platform": "darwin",
+  "tags": [
+    "tts",
+    "say",
+    "voice",
+    "speech"
+  ],
+  "profiles": [
+    {
+      "name": "voice",
+      "commands": [
+        {
+          "name": "say",
+          "execute": [
+            "stdin:say -v value(voice) value(message)"
+          ],
+          "help": {
+            "text": "Speak text using text-to-speech",
+            "variables": [
+              {
+                "name": "message",
+                "text": "The text to speak",
+                "default": "",
+                "arg": true
+              },
+              {
+                "name": "voice",
+                "text": "The voice to use",
+                "default": "Samantha"
+              }
+            ]
+          }
+        },
+        {
+          "name": "list",
+          "execute": [
+            "if(language!=) && say -v '?' | grep -i ${language} || say -v '?'"
+          ],
+          "help": {
+            "text": "List available voices",
+            "variables": [
+              {
+                "name": "language",
+                "text": "Filter by language code (e.g., en, pt_BR, ja_JP)",
+                "default": "",
+                "arg": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

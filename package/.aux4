@@ -1,0 +1,30 @@
+{
+  "scope": "aux4",
+  "name": "voice",
+  "version": "1.0.0",
+  "description": "Text-to-speech CLI tool",
+  "license": "Apache-2.0",
+  "tags": [
+    "tts",
+    "say",
+    "voice",
+    "speech",
+    "espeak"
+  ],
+  "profiles": [
+    {
+      "name": "main",
+      "commands": [
+        {
+          "name": "voice",
+          "execute": [
+            "profile:voice"
+          ],
+          "help": {
+            "text": "Text-to-speech commands"
+          }
+        }
+      ]
+    }
+  ]
+}

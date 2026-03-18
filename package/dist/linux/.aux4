@@ -1,0 +1,63 @@
+{
+  "platform": "linux",
+  "tags": [
+    "tts",
+    "espeak",
+    "voice",
+    "speech"
+  ],
+  "system": [
+    [
+      "test:espeak --version",
+      "apt:espeak",
+      "dnf:espeak",
+      "apk:espeak"
+    ]
+  ],
+  "profiles": [
+    {
+      "name": "voice",
+      "commands": [
+        {
+          "name": "say",
+          "execute": [
+            "stdin:espeak -v value(voice) value(message)"
+          ],
+          "help": {
+            "text": "Speak text using text-to-speech",
+            "variables": [
+              {
+                "name": "message",
+                "text": "The text to speak",
+                "default": "",
+                "arg": true
+              },
+              {
+                "name": "voice",
+                "text": "The voice to use",
+                "default": "en"
+              }
+            ]
+          }
+        },
+        {
+          "name": "list",
+          "execute": [
+            "if(language!=) && espeak --voices=${language} || espeak --voices"
+          ],
+          "help": {
+            "text": "List available voices",
+            "variables": [
+              {
+                "name": "language",
+                "text": "Filter by language code (e.g., en, pt, ja)",
+                "default": "",
+                "arg": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
