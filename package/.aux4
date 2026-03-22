@@ -1,7 +1,7 @@
 {
   "scope": "aux4",
   "name": "voice",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Text-to-speech CLI tool",
   "license": "Apache-2.0",
   "tags": [
